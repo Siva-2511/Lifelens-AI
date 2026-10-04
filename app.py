@@ -75,19 +75,24 @@ def send_whatsapp(to_number, message_body):
     to_clean = to_number.strip().replace(" ", "")
     if not to_clean.startswith("whatsapp:"):
         to_clean = "whatsapp:" + to_clean
+
+    # Respect Twilio's 1600-character limit
+    if len(message_body) > 1500:
+        message_body = message_body[:1450] + "\n\n...(truncated to fit WhatsApp limit)"
+
     try:
         msg = twilio_client.messages.create(
             from_=TWILIO_WHATSAPP_FROM,
             to=to_clean,
             body=message_body,
         )
-        return True, "Action Plan sent! Message SID: " + msg.sid
+        return True, "Action Plan sent to WhatsApp! Message SID: " + msg.sid
     except Exception as error:
         err_str = str(error)
         if "63016" in err_str or "outside the allowed window" in err_str:
             return False, (
-                "WhatsApp Sandbox session expired (24-hour window closed).\n\n"
-                "Fix: Open WhatsApp → send any message to +14155238886 → retry."
+                "⚠️ WhatsApp Sandbox session expired (24-hour window closed).\n\n"
+                "Fix: Open WhatsApp on your phone → send any message to +14155238886 → retry."
             )
         return False, "Twilio error: " + err_str
 
