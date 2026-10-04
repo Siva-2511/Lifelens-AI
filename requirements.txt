@@ -3,3 +3,6 @@ google-genai
 twilio
 Pillow
 python-dotenv
+fastapi
+uvicorn
+requests
