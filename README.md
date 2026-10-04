@@ -214,7 +214,7 @@ Create a `.env` file in the root directory (or copy `.env.example`):
 GEMINI_API_KEY=your_gemini_api_key_here
 TWILIO_ACCOUNT_SID=your_twilio_account_sid_here
 TWILIO_AUTH_TOKEN=your_twilio_auth_token_here
-TWILIO_WHATSAPP_FROM=whatsapp:+14155238886
+TWILIO_WHATSAPP_FROM=whatsapp:+1XXXXXXXXXX   # Your Twilio Sandbox number
 ```
 
 ### 5. Launch Streamlit Web App
@@ -249,8 +249,8 @@ To enable sending photos directly from WhatsApp to get Gemini Vision document in
 5. Click **Save**.
 
 ### How to Test Inbound WhatsApp Vision:
-1. Open WhatsApp on your phone (`+1234567890`).
-2. Send an **image of any document** (timetable, bill, circular) to your Twilio Sandbox number (`+1 415 523 8886`).
+1. Open WhatsApp on your phone.
+2. Send an **image of any document** (timetable, bill, circular) to your **Twilio Sandbox WhatsApp number** (find it in your [Twilio Console → WhatsApp Sandbox](https://console.twilio.com/us1/develop/sms/settings/whatsapp-sandbox)).
 3. LifeLens AI downloads the media, runs Gemini Vision analysis, and replies with structured document intelligence directly inside WhatsApp!
 
 ---
@@ -266,7 +266,7 @@ To enable sending photos directly from WhatsApp to get Gemini Vision document in
 GEMINI_API_KEY = "your_gemini_api_key_here"
 TWILIO_ACCOUNT_SID = "your_twilio_account_sid_here"
 TWILIO_AUTH_TOKEN = "your_twilio_auth_token_here"
-TWILIO_WHATSAPP_FROM = "whatsapp:+14155238886"
+TWILIO_WHATSAPP_FROM = "whatsapp:+1XXXXXXXXXX"  # Your Twilio Sandbox number
 ```
 
 5. Click **Deploy!**
