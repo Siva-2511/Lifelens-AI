@@ -1,0 +1,17 @@
+# Secrets — never commit this file
+.env
+.env.local
+.streamlit/secrets.toml
+
+# Python virtual environment and cache
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE and OS files
+.DS_Store
+.vscode/
+.idea/
+Thumbs.db
