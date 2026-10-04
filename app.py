@@ -92,7 +92,7 @@ def send_whatsapp(to_number, message_body):
         return False, "Twilio error: " + err_str
 
 
-FALLBACK_MODELS = ["gemini-3.8-flash", "gemini-3.5-flash-lite", "gemini-2.0-flash"]
+FALLBACK_MODELS = ["gemini-3.8-flash", "gemini-3.5-flash-lite", "gemini-2.5-flash"]
 
 
 def _build_full_history():
@@ -142,6 +142,8 @@ def ask_gemini(parts, max_retries=2):
                     return res.text
             except Exception as err:
                 last_err = str(err)
+                if "404" in last_err or "NOT_FOUND" in last_err:
+                    break
                 if ("503" in last_err or "UNAVAILABLE" in last_err or "429" in last_err or "RESOURCE_EXHAUSTED" in last_err) and attempt < max_retries - 1:
                     time.sleep(1.5 * (attempt + 1))
                     continue
