@@ -249,7 +249,7 @@ To enable sending photos directly from WhatsApp to get Gemini Vision document in
 5. Click **Save**.
 
 ### How to Test Inbound WhatsApp Vision:
-1. Open WhatsApp on your phone (`+919445824574`).
+1. Open WhatsApp on your phone (`+1234567890`).
 2. Send an **image of any document** (timetable, bill, circular) to your Twilio Sandbox number (`+1 415 523 8886`).
 3. LifeLens AI downloads the media, runs Gemini Vision analysis, and replies with structured document intelligence directly inside WhatsApp!
 
